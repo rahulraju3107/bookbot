@@ -1,4 +1,5 @@
 from stats import get_number_of_words, get_character_count, sorted_list
+import sys
 
 # Reads and returns contents of text file
 def get_book_text(path_to_file):
@@ -7,7 +8,13 @@ def get_book_text(path_to_file):
     return contents
 
 def main():
-    book = "books/frankenstein.txt"
+    # Get usage
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    book = sys.argv[1]
+    
+    # book = "books/frankenstein.txt"
     book_contents = get_book_text(book)
 
     # Get stats
